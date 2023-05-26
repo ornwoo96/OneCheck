@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		0BE562A32A208E910036BE17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562A22A208E910036BE17 /* AppDelegate.swift */; };
 		0BE562A52A208E910036BE17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562A42A208E910036BE17 /* SceneDelegate.swift */; };
-		0BE562A72A208E910036BE17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562A62A208E910036BE17 /* ViewController.swift */; };
+		0BE562A72A208E910036BE17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562A62A208E910036BE17 /* MainViewController.swift */; };
 		0BE562AC2A208E930036BE17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE562AB2A208E930036BE17 /* Assets.xcassets */; };
 		0BE562AF2A208E930036BE17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE562AD2A208E930036BE17 /* LaunchScreen.storyboard */; };
 		0BE562B72A20A1060036BE17 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562B62A20A1060036BE17 /* Marker.swift */; };
+		0BE562C62A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562C52A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift */; };
+		0BE562CB2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562CA2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift */; };
+		0BE562CF2A20AC1E0036BE17 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562CE2A20AC1E0036BE17 /* MainViewModel.swift */; };
+		0BE562D52A20AEAA0036BE17 /* MainViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562D42A20AEAA0036BE17 /* MainViewModelProtocol.swift */; };
+		0BE562D82A20AF010036BE17 /* MainViewModel+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */; };
+		0BE562DA2A20AF0E0036BE17 /* MainViewModel+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */; };
+		0BE562DE2A20B4C50036BE17 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562DD2A20B4C50036BE17 /* MainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BE5629F2A208E910036BE17 /* OneCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE562A22A208E910036BE17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE562A42A208E910036BE17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BE562A62A208E910036BE17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0BE562A62A208E910036BE17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0BE562AB2A208E930036BE17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BE562AE2A208E930036BE17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BE562B02A208E930036BE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE562B62A20A1060036BE17 /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		0BE562C52A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInCircleRegionCheckUseCase.swift; sourceTree = "<group>"; };
+		0BE562CA2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInCircleRegionCheckUseCaseProtocol.swift; sourceTree = "<group>"; };
+		0BE562CE2A20AC1E0036BE17 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0BE562D42A20AEAA0036BE17 /* MainViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelProtocol.swift; sourceTree = "<group>"; };
+		0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Event.swift"; sourceTree = "<group>"; };
+		0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Action.swift"; sourceTree = "<group>"; };
+		0BE562DD2A20B4C50036BE17 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +76,14 @@
 			path = OneCheck;
 			sourceTree = "<group>";
 		};
-		0BE562B82A20A11A0036BE17 /* MainView */ = {
+		0BE562B82A20A11A0036BE17 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0BE562A62A208E910036BE17 /* ViewController.swift */,
+				0BE562DB2A20B4A40036BE17 /* Model */,
+				0BE562CD2A20AC0D0036BE17 /* ViewModel */,
+				0BE562CC2A20AC080036BE17 /* View */,
 			);
-			path = MainView;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		0BE562B92A20A12D0036BE17 /* Resource */ = {
@@ -112,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE562BF2A20A1890036BE17 /* CommonView */,
-				0BE562B82A20A11A0036BE17 /* MainView */,
+				0BE562B82A20A11A0036BE17 /* Main */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -120,6 +136,9 @@
 		0BE562C22A20A7920036BE17 /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562C72A20AAD30036BE17 /* Interfaces */,
+				0BE562C92A20AAEA0036BE17 /* Model */,
+				0BE562C82A20AADC0036BE17 /* Protocols */,
 				0BE562C42A20A81D0036BE17 /* UseCases */,
 			);
 			path = DomainLayer;
@@ -135,8 +154,58 @@
 		0BE562C42A20A81D0036BE17 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562C52A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		0BE562C72A20AAD30036BE17 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		0BE562C82A20AADC0036BE17 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562CA2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0BE562C92A20AAEA0036BE17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0BE562CC2A20AC080036BE17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562A62A208E910036BE17 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BE562CD2A20AC0D0036BE17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562CE2A20AC1E0036BE17 /* MainViewModel.swift */,
+				0BE562D42A20AEAA0036BE17 /* MainViewModelProtocol.swift */,
+				0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */,
+				0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0BE562DB2A20B4A40036BE17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562DD2A20B4C50036BE17 /* MainModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,10 +278,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BE562A72A208E910036BE17 /* ViewController.swift in Sources */,
+				0BE562CF2A20AC1E0036BE17 /* MainViewModel.swift in Sources */,
+				0BE562D52A20AEAA0036BE17 /* MainViewModelProtocol.swift in Sources */,
+				0BE562CB2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift in Sources */,
+				0BE562D82A20AF010036BE17 /* MainViewModel+Event.swift in Sources */,
+				0BE562A72A208E910036BE17 /* MainViewController.swift in Sources */,
+				0BE562C62A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift in Sources */,
+				0BE562DE2A20B4C50036BE17 /* MainModel.swift in Sources */,
 				0BE562B72A20A1060036BE17 /* Marker.swift in Sources */,
 				0BE562A32A208E910036BE17 /* AppDelegate.swift in Sources */,
 				0BE562A52A208E910036BE17 /* SceneDelegate.swift in Sources */,
+				0BE562DA2A20AF0E0036BE17 /* MainViewModel+Action.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
