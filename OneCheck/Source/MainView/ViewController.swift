@@ -85,9 +85,12 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func moveToLocation(_ location: CLLocation) {
-        let regionRadius: CLLocationDistance = 1000 // 지도의 반경 설정 (미터 단위)
+        let regionRadius: CLLocationDistance = 100 // 지도의 반경 설정 (미터 단위)
         
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius,
+                                                  longitudinalMeters: regionRadius)
+        
         mapView.setRegion(coordinateRegion, animated: true)
     }
 }
