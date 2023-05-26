@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
+    private lazy var mapView: MKMapView = {
+        let mapView = MKMapView(frame: self.view.bounds)
 
+        return mapView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupUI()
     }
-
-
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+        setupMapKitView()
+    }
+    
+    private func setupMapKitView() {
+        view.addSubview(self.mapView)
+    }
 }
-
