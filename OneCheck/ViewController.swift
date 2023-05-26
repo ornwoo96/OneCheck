@@ -9,10 +9,19 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController {
-    private lazy var mapView: MKMapView = {
+    lazy var mapView: MKMapView = {
         let mapView = MKMapView(frame: self.view.bounds)
 
         return mapView
+    }()
+    
+    lazy var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        return locationManager
     }()
     
     override func viewDidLoad() {
@@ -27,5 +36,14 @@ class ViewController: UIViewController {
     
     private func setupMapKitView() {
         view.addSubview(self.mapView)
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else { return print("위치 불러오기 실패") }
+        
+        
     }
 }
