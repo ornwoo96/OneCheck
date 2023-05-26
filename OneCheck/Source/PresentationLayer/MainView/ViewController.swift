@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 class ViewController: UIViewController {
-    lazy var mapView: MKMapView = {
+    private lazy var mapView: MKMapView = {
         let mapView = MKMapView(frame: self.view.bounds)
 
         return mapView
@@ -45,46 +45,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            print("")
-            print("====================================")
-            print("[ locationManager() :: 위치 사용 권한 항상 허용]")
-            print("====================================")
-            print("")
-        }
-        if status == .authorizedWhenInUse {
-            print("")
-            print("====================================")
-            print("[ locationManager() :: 위치 사용 권한 앱 사용 시 허용]")
-            print("====================================")
-            print("")
-        }
-        if status == .denied {
-            print("")
-            print("====================================")
-            print("[ locationManager() :: 위치 사용 권한 거부]")
-            print("====================================")
-            print("")
-        }
-        if status == .restricted || status == .notDetermined {
-            print("")
-            print("====================================")
-            print("[ locationManager() :: 위치 사용 권한 대기 상태]")
-            print("====================================")
-            print("")
-        }
-    }
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return print("위치 불러오기 실패") }
-        
+        let marker = Marker.createMarker(currentLocation.coordinate)
+        mapView.addAnnotation(marker)
         moveToLocation(currentLocation)
     }
     
-    func moveToLocation(_ location: CLLocation) {
+    private func moveToLocation(_ location: CLLocation) {
         let regionRadius: CLLocationDistance = 100 // 지도의 반경 설정 (미터 단위)
         
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
