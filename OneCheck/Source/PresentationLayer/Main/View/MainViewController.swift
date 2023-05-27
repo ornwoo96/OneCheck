@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Combine
+import UserNotifications
 
 class MainViewController: UIViewController {
     private let viewModel: MainViewModelProtocol
@@ -53,6 +54,8 @@ class MainViewController: UIViewController {
                     strongSelf.removeOverlay(overlay)
                 case .createOverlay(let overlay):
                     strongSelf.drawOverlay(overlay)
+                case .showNotification:
+                    strongSelf.showNotification()
                 }
             }
             .store(in: &cancellable)
@@ -136,5 +139,19 @@ extension MainViewController {
     
     private func drawOverlay(_ overlay: MKOverlay) {
         mapView.addOverlay(overlay)
+    }
+}
+
+extension MainViewController {
+    private func showNotification() {
+        let alertController = UIAlertController(title: "현재 위치 알림",
+                                                message: "범위에 들어와있습니다.",
+                                                preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "확인", style: .default)
+        
+        alertController.addAction(okButton)
+        
+        self.present(alertController, animated: true)
     }
 }

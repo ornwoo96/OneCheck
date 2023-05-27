@@ -13,6 +13,10 @@ public class ClickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol {
     
     init() {}
     
+    public func getOverlayCLCircularRegions() -> [DomainCircle] {
+        return circleOverlays
+    }
+    
     public func deleteORCreateOverlay(_ coordinate: DomainLocationCoordinate) -> (Bool, DomainOverlayProtocol) {
         if let tappedOverlay = overlay(at: coordinate) {
             circleOverlays.removeAll { $0 === tappedOverlay }

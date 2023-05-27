@@ -12,6 +12,14 @@ class LocationInCircleRegionCheckUseCase: LocationInCircleRegionCheckUseCaseProt
     
     init() {}
     
-    func check() {
+    public func circleRegionCheck(_ regions: [DomainCircularRegion],
+                                  _ location: DomainLocation) -> Bool {
+        for region in regions {
+            if region.contains(location.coordinate) {
+                return true
+            }
+        }
+        
+        return false
     }
 }

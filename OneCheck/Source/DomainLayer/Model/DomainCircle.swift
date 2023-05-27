@@ -8,4 +8,12 @@
 import Foundation
 import MapKit
 
-class DomainCircle: MKCircle { }
+public class DomainCircle: MKCircle { }
+
+extension DomainCircle {
+    static func convert(_ circle: DomainCircle) -> DomainCircularRegion {
+        return DomainCircularRegion(center: circle.coordinate,
+                                    radius: circle.radius,
+                                    identifier: "")
+    }
+}

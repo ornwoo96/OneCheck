@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol ClickInsideCircleUseCaseProtocol {
-    func deleteORCreateOverlay(_ coordinate: DomainLocationCoordinate) -> (Bool, DomainOverlayProtocol) 
+    func deleteORCreateOverlay(_ coordinate: DomainLocationCoordinate) -> (Bool, DomainOverlayProtocol)
+    func getOverlayCLCircularRegions() -> [DomainCircle]
 }

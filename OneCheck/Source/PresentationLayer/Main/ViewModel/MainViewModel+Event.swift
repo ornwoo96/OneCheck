@@ -23,6 +23,15 @@ extension MainViewModel {
             case (.moveLocation, .moveLocation):
                 return true
                 
+            case (.removeOverlay, .removeOverlay):
+                return true
+                
+            case (.createOverlay, .createOverlay):
+                return true
+                
+            case (.showNotification, .showNotification):
+                return true
+                
             default:
                 return false
                 
@@ -34,5 +43,6 @@ extension MainViewModel {
         case moveLocation(_ currentLocation: CLLocation)
         case removeOverlay(_ overlay: DomainOverlayProtocol)
         case createOverlay(_ overlay: DomainOverlayProtocol)
+        case showNotification
     }
 }

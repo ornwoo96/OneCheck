@@ -25,6 +25,7 @@ class MainViewModel: MainViewModelProtocol {
             event.send(.setupMain)
         case .didUpdateLocation(let currentLocation):
             event.send(.moveLocation(currentLocation))
+            checkRegion(MainLocation.convert(currentLocation))
         case .mapViewTapped(let coordinate):
             checkOverlayDeleteORCreate(coordinate)
         }
@@ -36,6 +37,18 @@ class MainViewModel: MainViewModelProtocol {
             event.send(.removeOverlay(overlay.1))
         } else {
             event.send(.createOverlay(overlay.1))
+        }
+    }
+    
+    private func checkRegion(_ location: MainLocation) {
+        let regions = clickInsideCircleUseCase.getOverlayCLCircularRegions()
+        if regionCheckUseCase.circleRegionCheck(DomainCircularRegion.convert(regions),
+                                                MainLocation.convert(location)) {
+            print("범위에 들어왔습다")
+            event.send(.showNotification)
+        } else {
+            
+            print("범위 아웃")
         }
     }
 }

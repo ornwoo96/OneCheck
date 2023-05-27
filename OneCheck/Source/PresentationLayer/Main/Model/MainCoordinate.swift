@@ -8,8 +8,6 @@
 import Foundation
 import MapKit
 
-protocol MainOverlay: MKOverlay { }
-
 struct MainCoordinate {
     var latitude: Double
     var longitude: Double
@@ -30,4 +28,3 @@ extension MainCoordinate {
         return DomainLocationCoordinate(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 }
-

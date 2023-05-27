@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol LocationInCircleRegionCheckUseCaseProtocol {
-    
+    func circleRegionCheck(_ regions: [DomainCircularRegion],
+                           _ location: DomainLocation) -> Bool 
 }
