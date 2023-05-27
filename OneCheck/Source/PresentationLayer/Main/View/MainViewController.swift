@@ -14,11 +14,12 @@ class MainViewController: UIViewController {
     private let viewModel: MainViewModelProtocol
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView(frame: self.view.bounds)
-
+        mapView.delegate = self
         return mapView
     }()
     
     private let locationManager = CLLocationManager()
+    private var circleOverlays: [MKCircle] = []
     private var cancellable: Set<AnyCancellable> = .init()
     
     override func viewDidLoad() {
@@ -48,6 +49,10 @@ class MainViewController: UIViewController {
                     strongSelf.setupUI()
                 case .moveLocation(let currentLocation):
                     strongSelf.updateCurrentLocation(currentLocation)
+                case .removeOverlay(let overlay):
+                    strongSelf.removeOverlay(overlay)
+                case .createOverlay(let overlay):
+                    strongSelf.drawOverlay(overlay)
                 }
             }
             .store(in: &cancellable)
@@ -56,6 +61,7 @@ class MainViewController: UIViewController {
     private func setupUI() {
         setupView()
         setupMapKitView()
+        setupTapGesture()
     }
     
     private func setupView() {
@@ -71,6 +77,17 @@ class MainViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mapViewDidTap(_:)))
+        mapView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func mapViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        viewModel.action(.mapViewTapped(MainCoordinate.convert(coordinate)))
+    }
 }
 
 extension MainViewController: CLLocationManagerDelegate {
@@ -79,7 +96,20 @@ extension MainViewController: CLLocationManagerDelegate {
         guard let currentLocation = locations.last else { return print("위치 불러오기 실패") }
         viewModel.action(.didUpdateLocation(currentLocation))
     }
-    
+}
+
+extension MainViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView,
+                 rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.strokeColor = .red
+        circleRenderer.fillColor = UIColor.yellow.withAlphaComponent(0.3)
+        circleRenderer.lineWidth = 1.0
+        return circleRenderer
+    }
+}
+
+extension MainViewController {
     private func updateCurrentLocation(_ location: CLLocation) {
         drawMarker(location)
         moveMapToLocation(location)
@@ -91,12 +121,20 @@ extension MainViewController: CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
-        
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
     private func drawMarker(_ location: CLLocation) {
+        mapView.removeAnnotations(mapView.annotations)
         let marker = Marker.createMarker(location.coordinate)
         mapView.addAnnotation(marker)
+    }
+    
+    private func removeOverlay(_ overlay: MKOverlay) {
+        mapView.removeOverlay(overlay)
+    }
+    
+    private func drawOverlay(_ overlay: MKOverlay) {
+        mapView.addOverlay(overlay)
     }
 }

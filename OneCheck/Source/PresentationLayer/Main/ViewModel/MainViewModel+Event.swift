@@ -32,5 +32,7 @@ extension MainViewModel {
         case none
         case setupMain
         case moveLocation(_ currentLocation: CLLocation)
+        case removeOverlay(_ overlay: DomainOverlayProtocol)
+        case createOverlay(_ overlay: DomainOverlayProtocol)
     }
 }

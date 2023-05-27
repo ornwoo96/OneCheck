@@ -12,5 +12,6 @@ extension MainViewModel {
     internal enum Action {
         case viewDidLoad
         case didUpdateLocation(_ currentLocation: CLLocation)
+        case mapViewTapped(_ coordinate: MainCoordinate)
     }
 }

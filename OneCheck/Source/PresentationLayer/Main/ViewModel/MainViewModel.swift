@@ -9,11 +9,14 @@ import Foundation
 import Combine
 
 class MainViewModel: MainViewModelProtocol {
-    let useCase: LocationInCircleRegionCheckUseCaseProtocol
+    private let regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol
+    private let clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol
     var event: CurrentValueSubject<Event, Never> = .init(.none)
     
-    init(useCase: LocationInCircleRegionCheckUseCaseProtocol) {
-        self.useCase = useCase
+    init(regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol,
+         clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol) {
+        self.regionCheckUseCase = regionCheckUseCase
+        self.clickInsideCircleUseCase = clickInsideCircleUseCase
     }
     
     func action(_ action: Action) {
@@ -22,6 +25,17 @@ class MainViewModel: MainViewModelProtocol {
             event.send(.setupMain)
         case .didUpdateLocation(let currentLocation):
             event.send(.moveLocation(currentLocation))
+        case .mapViewTapped(let coordinate):
+            checkOverlayDeleteORCreate(coordinate)
+        }
+    }
+    
+    private func checkOverlayDeleteORCreate(_ coordinate: MainCoordinate) {
+        let overlay = clickInsideCircleUseCase.deleteORCreateOverlay(MainCoordinate.convert(coordinate))
+        if overlay.0 {
+            event.send(.removeOverlay(overlay.1))
+        } else {
+            event.send(.createOverlay(overlay.1))
         }
     }
 }

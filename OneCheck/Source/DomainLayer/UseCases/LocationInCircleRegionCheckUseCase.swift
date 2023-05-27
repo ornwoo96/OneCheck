@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import CoreLocation
 
 class LocationInCircleRegionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol {
     
-    
     init() {}
     
-    
+    func check() {
+    }
 }

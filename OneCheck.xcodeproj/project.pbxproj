@@ -20,6 +20,12 @@
 		0BE562D82A20AF010036BE17 /* MainViewModel+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */; };
 		0BE562DA2A20AF0E0036BE17 /* MainViewModel+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */; };
 		0BE562DE2A20B4C50036BE17 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562DD2A20B4C50036BE17 /* MainModel.swift */; };
+		0BE562E02A20C0000036BE17 /* DomainOverlayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562DF2A20C0000036BE17 /* DomainOverlayProtocol.swift */; };
+		0BE562E52A20C36A0036BE17 /* MainDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562E42A20C36A0036BE17 /* MainDIContainer.swift */; };
+		0BE562E82A20D5410036BE17 /* DomainLocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562E72A20D5410036BE17 /* DomainLocationCoordinate.swift */; };
+		0BE562EA2A21AF580036BE17 /* DomainCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562E92A21AF580036BE17 /* DomainCircle.swift */; };
+		0BE562EC2A21B02F0036BE17 /* ClickInsideCircleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562EB2A21B02F0036BE17 /* ClickInsideCircleUseCase.swift */; };
+		0BE562EE2A21B0440036BE17 /* ClickInsideCircleUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE562ED2A21B0440036BE17 /* ClickInsideCircleUseCaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Event.swift"; sourceTree = "<group>"; };
 		0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewModel+Action.swift"; sourceTree = "<group>"; };
 		0BE562DD2A20B4C50036BE17 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		0BE562DF2A20C0000036BE17 /* DomainOverlayProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainOverlayProtocol.swift; sourceTree = "<group>"; };
+		0BE562E42A20C36A0036BE17 /* MainDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDIContainer.swift; sourceTree = "<group>"; };
+		0BE562E72A20D5410036BE17 /* DomainLocationCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLocationCoordinate.swift; sourceTree = "<group>"; };
+		0BE562E92A21AF580036BE17 /* DomainCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainCircle.swift; sourceTree = "<group>"; };
+		0BE562EB2A21B02F0036BE17 /* ClickInsideCircleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickInsideCircleUseCase.swift; sourceTree = "<group>"; };
+		0BE562ED2A21B0440036BE17 /* ClickInsideCircleUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickInsideCircleUseCaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 		0BE562B82A20A11A0036BE17 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562E62A20C4210036BE17 /* DIContainer */,
 				0BE562DB2A20B4A40036BE17 /* Model */,
 				0BE562CD2A20AC0D0036BE17 /* ViewModel */,
 				0BE562CC2A20AC080036BE17 /* View */,
@@ -155,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE562C52A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift */,
+				0BE562EB2A21B02F0036BE17 /* ClickInsideCircleUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -169,7 +183,9 @@
 		0BE562C82A20AADC0036BE17 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562DF2A20C0000036BE17 /* DomainOverlayProtocol.swift */,
 				0BE562CA2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift */,
+				0BE562ED2A21B0440036BE17 /* ClickInsideCircleUseCaseProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -177,6 +193,8 @@
 		0BE562C92A20AAEA0036BE17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562E72A20D5410036BE17 /* DomainLocationCoordinate.swift */,
+				0BE562E92A21AF580036BE17 /* DomainCircle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +224,14 @@
 				0BE562DD2A20B4C50036BE17 /* MainModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0BE562E62A20C4210036BE17 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562E42A20C36A0036BE17 /* MainDIContainer.swift */,
+			);
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +309,18 @@
 				0BE562CB2A20AB570036BE17 /* LocationInCircleRegionCheckUseCaseProtocol.swift in Sources */,
 				0BE562D82A20AF010036BE17 /* MainViewModel+Event.swift in Sources */,
 				0BE562A72A208E910036BE17 /* MainViewController.swift in Sources */,
+				0BE562E02A20C0000036BE17 /* DomainOverlayProtocol.swift in Sources */,
+				0BE562EC2A21B02F0036BE17 /* ClickInsideCircleUseCase.swift in Sources */,
+				0BE562EE2A21B0440036BE17 /* ClickInsideCircleUseCaseProtocol.swift in Sources */,
+				0BE562E82A20D5410036BE17 /* DomainLocationCoordinate.swift in Sources */,
+				0BE562E52A20C36A0036BE17 /* MainDIContainer.swift in Sources */,
 				0BE562C62A20AAC40036BE17 /* LocationInCircleRegionCheckUseCase.swift in Sources */,
 				0BE562DE2A20B4C50036BE17 /* MainModel.swift in Sources */,
 				0BE562B72A20A1060036BE17 /* Marker.swift in Sources */,
 				0BE562A32A208E910036BE17 /* AppDelegate.swift in Sources */,
 				0BE562A52A208E910036BE17 /* SceneDelegate.swift in Sources */,
 				0BE562DA2A20AF0E0036BE17 /* MainViewModel+Action.swift in Sources */,
+				0BE562EA2A21AF580036BE17 /* DomainCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
