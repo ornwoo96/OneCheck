@@ -72,6 +72,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupMapKitView() {
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(self.mapView)
     }
     
