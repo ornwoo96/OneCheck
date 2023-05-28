@@ -64,11 +64,11 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     private func checkIsFirstNotification() {
-//        if isFirstNotification {
+        if isFirstNotification {
             checkIsBackground()
             event.send(.showNotification)
             isFirstNotification = false
-//        }
+        }
     }
     
     private func checkIsBackground() {
