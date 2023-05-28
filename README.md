@@ -12,7 +12,8 @@
 
 이였습니다.
 <br/>
-<br/>
+
+<img src = "https://github.com/ornwoo96/OneCheck/assets/73861795/a084294a-21fd-4473-9fdc-c03082f4649f" width="150" height="150"/>
 
 다음 과제앱에 대한 설명을 하겠습니다.
 
