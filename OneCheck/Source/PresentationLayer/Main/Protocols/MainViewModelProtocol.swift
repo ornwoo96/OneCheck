@@ -10,6 +10,8 @@ import Combine
 
 protocol MainViewModelInputProtocol {
     func action(_ action: MainViewModel.Action)
+    func setupIsBackgroundForTrue()
+    func setupIsBackgroundForFalse()
 }
 
 protocol MainViewModelOutputProtocol {

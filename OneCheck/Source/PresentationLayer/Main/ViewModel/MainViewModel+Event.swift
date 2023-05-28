@@ -44,5 +44,6 @@ extension MainViewModel {
         case removeOverlay(_ overlay: DomainOverlayProtocol)
         case createOverlay(_ overlay: DomainOverlayProtocol)
         case showNotification
+        case pushNotification
     }
 }
