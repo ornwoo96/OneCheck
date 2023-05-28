@@ -58,3 +58,19 @@ https://github.com/ornwoo96/OneCheck/assets/73861795/58201927-12ac-49d2-a9f2-364
 <br/>
 
 
+## 🛠️구조 설명
+
+![무제](https://github.com/ornwoo96/OneCheck/assets/73861795/3aa61ba5-beb3-4460-abb3-569bd18f35aa)
+
+>### MVVM
+- 비즈니스 로직을 보호하기 위한 클린 아키텍처 MVVM을 적용하였습니다.
+- view는 UI를 생성 및 업데이트만 하고 그 외에 로직들은 ViewModel이 관리하도록 하였습니다.
+- 비동기 처리는 Combine, async/await 으로 하였습니다. ( async/await은 네트워크 통신에만 쓰이는데 네트워크 통신을 구현할 일이 없어서 구현하지 않았습니다. )
+
+
+
+
+
+
+
+
