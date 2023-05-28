@@ -12,6 +12,8 @@ class MainViewModel: MainViewModelProtocol {
     private let regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol
     private let clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol
     var event: CurrentValueSubject<Event, Never> = .init(.none)
+    private var currentLocation: MainLocation = MainLocation()
+    private var isFirstNotification: Bool = true
     
     init(regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol,
          clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol) {
@@ -26,8 +28,10 @@ class MainViewModel: MainViewModelProtocol {
         case .didUpdateLocation(let currentLocation):
             event.send(.moveLocation(currentLocation))
             checkRegion(MainLocation.convert(currentLocation))
+            self.currentLocation = MainLocation.convert(currentLocation)
         case .mapViewTapped(let coordinate):
             checkOverlayDeleteORCreate(coordinate)
+            checkRegion(self.currentLocation)
         }
     }
     
@@ -44,11 +48,16 @@ class MainViewModel: MainViewModelProtocol {
         let regions = clickInsideCircleUseCase.getOverlayCLCircularRegions()
         if regionCheckUseCase.circleRegionCheck(DomainCircularRegion.convert(regions),
                                                 MainLocation.convert(location)) {
-            print("범위에 들어왔습다")
-            event.send(.showNotification)
+            checkIsFirstNotification()
         } else {
-            
-            print("범위 아웃")
+            isFirstNotification = true
+        }
+    }
+    
+    private func checkIsFirstNotification() {
+        if isFirstNotification {
+            event.send(.showNotification)
+            isFirstNotification = false
         }
     }
 }
