@@ -11,9 +11,9 @@ import Combine
 class MainViewModel: MainViewModelProtocol {
     private let regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol
     private let clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol
-    var event: CurrentValueSubject<Event, Never> = .init(.none)
     private var currentLocation: MainLocation = MainLocation()
     private var isFirstNotification: Bool = true
+    var event: CurrentValueSubject<Event, Never> = .init(.none)
     
     init(regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol,
          clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol) {

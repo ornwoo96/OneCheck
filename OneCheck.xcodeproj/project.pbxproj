@@ -101,6 +101,7 @@
 		0BE562B82A20A11A0036BE17 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0BE562FB2A22F0D00036BE17 /* Protocols */,
 				0BE562E62A20C4210036BE17 /* DIContainer */,
 				0BE562DB2A20B4A40036BE17 /* Model */,
 				0BE562CD2A20AC0D0036BE17 /* ViewModel */,
@@ -223,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				0BE562CE2A20AC1E0036BE17 /* MainViewModel.swift */,
-				0BE562D42A20AEAA0036BE17 /* MainViewModelProtocol.swift */,
 				0BE562D72A20AF010036BE17 /* MainViewModel+Event.swift */,
 				0BE562D92A20AF0E0036BE17 /* MainViewModel+Action.swift */,
 			);
@@ -234,8 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				0BE562DD2A20B4C50036BE17 /* MainCoordinate.swift */,
-				0BE562EF2A21BAA70036BE17 /* MainOverlayProtocol.swift */,
-				0BE562F12A21BCDA0036BE17 /* MainAnnotationProtocol.swift */,
 				0BE562F92A21C75E0036BE17 /* MainLocation.swift */,
 			);
 			path = Model;
@@ -247,6 +245,16 @@
 				0BE562E42A20C36A0036BE17 /* MainDIContainer.swift */,
 			);
 			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		0BE562FB2A22F0D00036BE17 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0BE562EF2A21BAA70036BE17 /* MainOverlayProtocol.swift */,
+				0BE562F12A21BCDA0036BE17 /* MainAnnotationProtocol.swift */,
+				0BE562D42A20AEAA0036BE17 /* MainViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
