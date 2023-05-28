@@ -13,6 +13,7 @@ class MainViewModel: MainViewModelProtocol {
     private let clickInsideCircleUseCase: ClickInsideCircleUseCaseProtocol
     private var currentLocation: MainLocation = MainLocation()
     private var isFirstNotification: Bool = true
+    private var isBackground: Bool = false
     var event: CurrentValueSubject<Event, Never> = .init(.none)
     
     init(regionCheckUseCase: LocationInCircleRegionCheckUseCaseProtocol,
@@ -33,6 +34,14 @@ class MainViewModel: MainViewModelProtocol {
             checkOverlayDeleteORCreate(coordinate)
             checkRegion(self.currentLocation)
         }
+    }
+    
+    func setupIsBackgroundForTrue() {
+        isBackground = true
+    }
+    
+    func setupIsBackgroundForFalse() {
+        isBackground = false
     }
     
     private func checkOverlayDeleteORCreate(_ coordinate: MainCoordinate) {
@@ -56,8 +65,15 @@ class MainViewModel: MainViewModelProtocol {
     
     private func checkIsFirstNotification() {
         if isFirstNotification {
+            checkIsBackground()
             event.send(.showNotification)
             isFirstNotification = false
+        }
+    }
+    
+    private func checkIsBackground() {
+        if isBackground {
+            event.send(.pushNotification)
         }
     }
 }

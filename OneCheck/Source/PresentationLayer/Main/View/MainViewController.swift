@@ -48,6 +48,8 @@ class MainViewController: UIViewController {
                 case .setupMain:
                     strongSelf.setupLocationManager()
                     strongSelf.setupUI()
+                    strongSelf.bindNotificationCenter()
+                    strongSelf.requestNotificationPermission()
                 case .moveLocation(let currentLocation):
                     strongSelf.updateCurrentLocation(currentLocation)
                 case .removeOverlay(let overlay):
@@ -56,6 +58,8 @@ class MainViewController: UIViewController {
                     strongSelf.drawOverlay(overlay)
                 case .showNotification:
                     strongSelf.showNotification()
+                case .pushNotification:
+                    strongSelf.showPushNotification()
                 }
             }
             .store(in: &cancellable)
@@ -78,7 +82,8 @@ class MainViewController: UIViewController {
     
     private func setupLocationManager() {
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.startUpdatingLocation()
     }
     
@@ -154,5 +159,47 @@ extension MainViewController {
         alertController.addAction(okButton)
         
         self.present(alertController, animated: true)
+    }
+}
+
+extension MainViewController {
+    private func bindNotificationCenter() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setupIsBackgroundForTrue),
+                                               name: NSNotification.Name("SceneDidEnterBackground"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setupIsBackgroundForFalse),
+                                               name: NSNotification.Name("SceneWillEnterForeground"),
+                                               object: nil)
+    }
+    
+    @objc private func setupIsBackgroundForTrue() {
+        viewModel.setupIsBackgroundForTrue()
+    }
+    
+    @objc private func setupIsBackgroundForFalse() {
+        viewModel.setupIsBackgroundForFalse()
+    }
+    
+    private func showPushNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "원체크 위치 서비스 알림"
+        content.body = "범위 안에 들어와있습니다."
+        content.sound = UNNotificationSound.default
+
+        let request = UNNotificationRequest(identifier: "uniqueIdentifier", content: content, trigger: nil)
+
+        UNUserNotificationCenter.current().add(request)
+    }
+    
+    private func requestNotificationPermission(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
     }
 }
