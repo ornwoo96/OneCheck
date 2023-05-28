@@ -22,6 +22,8 @@
 ## 💡기능 설명
 ### 1. 임의로 1개 등록하는 것이지만 편의상 사용자의 터치로 Geofence를 등록하도록 하였습니다.
 
+https://github.com/ornwoo96/OneCheck/assets/73861795/e84cc0a1-1824-4f7b-9d1b-ae3a138d681b
+
 
 <br/>
 <br/>
@@ -30,11 +32,17 @@
 ### 2. 여러개의 Overlay를 등록할 수 있으며 만들어져 있는 Overlay를 클릭하면 삭제할 수 도 있습니다.
 
 
+https://github.com/ornwoo96/OneCheck/assets/73861795/c928f527-defb-4e89-8adb-9ef1d33e9675
+
+
+
 <br/>
 <br/>
 
 
 ### 3. 바운더리 안에 들어오게 되면 알림이 뜨게되고, 그안에 있는 동안 1번만 알림이 불리게 되어 있습니다.
+
+https://github.com/ornwoo96/OneCheck/assets/73861795/0441c055-59e0-4607-8c51-07bf1434745f
 
 
 <br/>
@@ -42,6 +50,8 @@
 
 
 ### 4. 백그라운드 상태에서도 알림을 받을 수 있게 해놓았습니다.
+
+https://github.com/ornwoo96/OneCheck/assets/73861795/58201927-12ac-49d2-a9f2-364bc8b46804
 
 
 <br/>
